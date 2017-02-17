@@ -15,7 +15,7 @@ const EXPRESS_PORT = process.env.WHATS_MY_NUMBER_PORT || 80;
 const LOG_FILE = process.env.WHATS_MY_NUMBER_LOG || 'requests.log';
 
 // Listens to every method
-expressApp.all('*', function(req, res){
+expressApp.all('/', function(req, res){
   // Saves log
   const logLine = JSON.stringify({
     date: moment().format('YYYY-MM-DD HH:mm:ss.SSS Z'),
@@ -32,6 +32,10 @@ expressApp.all('*', function(req, res){
   res.json({
     IP: req.ip
   });
+});
+
+expressApp.all('/*', function(req, res){
+  res.sendStatus(404).end();
 });
 
 expressApp.listen(EXPRESS_PORT);

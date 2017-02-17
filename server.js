@@ -11,7 +11,7 @@ const moment                 = require('moment');
 
 const expressApp = new express();
 
-const EXPRESS_PORT = process.env.WHATS_MY_NUMBER_PORT || 80;
+const EXPRESS_PORT = process.env.PORT || 80;
 const LOG_FILE = process.env.WHATS_MY_NUMBER_LOGFILE || 'requests.log';
 const WRITE_FILE = process.env.WHATS_MY_NUMBER_LOG || false;
 
